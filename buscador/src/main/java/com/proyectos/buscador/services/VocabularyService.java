@@ -36,6 +36,7 @@ public class VocabularyService {
     }
 
     public int getDocumentCount(Vocabulary vocabulary){
+        if(vocabulary == null)return 0;
         return vocabularyRepository.getDocumentCount(vocabulary.getId());
     }
 }

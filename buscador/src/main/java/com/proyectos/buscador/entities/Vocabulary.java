@@ -2,6 +2,9 @@ package com.proyectos.buscador.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.context.annotation.Lazy;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -24,6 +27,5 @@ public class Vocabulary {
     @Column(name = "word", nullable = false)
     private String word;
 
-    @Transient
-    private int documentCount;
+
 }

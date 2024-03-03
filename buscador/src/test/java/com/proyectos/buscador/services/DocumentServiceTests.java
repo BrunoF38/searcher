@@ -17,7 +17,7 @@ public class DocumentServiceTests {
 
     @Test
     void saveDocument(){
-        Document document = new Document("ejemplo 2","Hola todo bien bien");
+        Document document = new Document("hola","Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola hola hola hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola hola hola hola");
 
         documentService.saveDocument(document);
     }

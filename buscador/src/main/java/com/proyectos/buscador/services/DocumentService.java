@@ -58,16 +58,16 @@ public class DocumentService {
 
         for (Post post:
              posts) {
-            /*
-            if(post.getVocabulary().getDocumentCount() == 0) post.getVocabulary().setDocumentCount(vocabularyService.getDocumentCount(post.getVocabulary()));
-            double importance = post.getWordCount() * Math.log((double) documentTotal / post.getVocabulary().getDocumentCount());
-            post.getDocument().setImportance(importance);
-            */
+            int documentCount = vocabularyService.getDocumentCount(post.getVocabulary());
+            double importance = post.getWordCount() * Math.log((double) documentTotal / documentCount);
 
+            post.getDocument().setImportance(post.getDocument().getImportance() + importance);
         }
 
+        posts.stream().map(Post::getDocument).forEach(d -> System.out.println(d.getTitle() + " - " + d.getImportance()));
         return posts.stream()
                 .map(Post::getDocument)
+                .distinct()
                 .sorted(Comparator.comparingDouble(Document::getImportance).reversed())
                 .toList();
     }

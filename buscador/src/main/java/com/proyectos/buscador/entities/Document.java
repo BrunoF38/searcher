@@ -18,7 +18,6 @@ public class Document {
         this.id = -1L;
         this.title = title;
         this.content = content;
-        this.uploadDate = new Date();
     }
 
     @Id
@@ -32,8 +31,8 @@ public class Document {
     @Column(name = "content",nullable = false)
     private String content;
 
-    @Column(name = "upload_date",columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
-    private Date uploadDate;
+    @Column(name = "upload_date")
+    private Date uploadDate = new Date();
 
     @Transient
     private double importance;
